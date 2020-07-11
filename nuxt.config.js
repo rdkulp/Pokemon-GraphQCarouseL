@@ -57,7 +57,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "https://pokeapi-graphiql.herokuapp.com/"
+        httpEndpoint: "https://graphql-pokemon.now.sh/"
       }
     }
   },

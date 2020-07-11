@@ -3,11 +3,36 @@
     <div>
       <Logo />
     </div>
+    <br />
+    <div class="pokemon-carousel">
+      <ul>
+        <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id">{{ pokemon.name }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import gql from "graphql-tag";
+export default {
+  apollo: {
+    pokemons: gql`
+      query getPokemon {
+        pokemons(first: 8) {
+          id
+          name
+          weight {
+            maximum
+          }
+          types
+          weaknesses
+          fleeRate
+          image
+        }
+      }
+    `
+  }
+};
 </script>
 
 <style>
@@ -19,28 +44,25 @@ export default {};
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+.pokemon-carousel {
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  width: 100%;
+  position: relative;
+  margin-top: 5rem;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.poke-list {
+  list-style: none;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 .links {

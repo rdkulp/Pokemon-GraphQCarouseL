@@ -7,8 +7,8 @@
   animation: 1s appear;
   margin: auto;
   margin-top: 1vh;
-  width: 33.33%;
   align-items: center;
+  position: relative;
 }
 
 @keyframes appear {
