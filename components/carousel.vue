@@ -1,11 +1,13 @@
 <template>
   <div class="pokemon-carousel-container">
     <ul class="pokemon-carousel">
+      
       <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id">
         <img :src="pokemon.image" />
       </li>
     </ul>
   </div>
+  
 </template>
 
 <script>
@@ -67,12 +69,12 @@ export default {
 
 .pokemon-carousel li:nth-child(2) {
   z-index: 3;
-  transform: translateX(-50%) scale(0.875) translate3d(240%, 30%, 0);
+  transform: translateX(-50%) scale(0.875) translate3d(150%, 30%, 0);
 }
 
 .pokemon-carousel li:nth-child(8) {
   z-index: 3;
-  transform: translateX(-50%) scale(0.875) translate3d(-240%, 30%, 0);
+  transform: translateX(-50%) scale(0.875) translate3d(-150%, 30%, 0);
 }
 
 .pokemon-carousel li:nth-child(3) {
@@ -108,5 +110,19 @@ export default {
   font-size: 3rem;
   font-weight: 500;
   display: block;
+}
+
+.hover-card {
+  width: 50%;
+  height: auto;
+  padding: 1rem;
+  background-color: royalblue;
+  margin-top: -25rem;
+  position: absolute;
+  font-family: "futura";
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  align-content: center;
 }
 </style>

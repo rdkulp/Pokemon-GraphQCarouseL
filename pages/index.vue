@@ -4,7 +4,6 @@
       <Logo />
     </div>
     <Carousel />
-    <Grid />
   </div>
 </template>
 
