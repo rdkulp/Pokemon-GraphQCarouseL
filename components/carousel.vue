@@ -1,9 +1,11 @@
 <template>
   <div class="pokemon-carousel-container">
-    <ul class="pokemon-carousel">
+    <ul class="pokemon-carousel" v-on:click="rotate">
       
-      <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id">
+      <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id" v-on:click="rotate">
         <img :src="pokemon.image" />
+        <h2> {{ pokemon.name }} </h2>
+        <p> {{ pokemon.type }} </p>
       </li>
     </ul>
   </div>
@@ -12,6 +14,7 @@
 
 <script>
 import gql from "graphql-tag";
+
 export default {
   apollo: {
     pokemons: gql`
@@ -29,7 +32,13 @@ export default {
         }
       }
     `
-  }
+  },
+  methods: {
+    rotate: function () {
+      array = Array.from(document.querySelectorAll('li'))
+      return array.unshift(array.pop()).prototype.toString();
+    }
+  }  
 };
 </script>
 
@@ -100,16 +109,6 @@ export default {
 .pokemon-carousel li:nth-child(5) {
   z-index: 0;
   transform: translateX(-50%) scale(0.5) translate3d(0, -30%, 0);
-}
-
-.poke-list {
-  list-style: none;
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: white;
-  font-size: 3rem;
-  font-weight: 500;
-  display: block;
 }
 
 .hover-card {
