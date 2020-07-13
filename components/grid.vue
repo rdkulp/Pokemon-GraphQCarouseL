@@ -1,7 +1,7 @@
 <template>
   <div class="pokemon-grid">
     <div class="poke-grid" v-for="pokemon in pokemons" :key="pokemon.id">
-      <img :src="pokemon.image" :id="pokemon.id" &#x26;#x3C;!-- @dragover.prevent @drop.prevent /> -->
+      <img :src="pokemon.image" :id="pokemon.id" />
       <h2>{{ pokemon.name }}</h2>
     </div>
   </div>
@@ -51,7 +51,7 @@ export default {
   grid-column-gap: 4px;
   grid-row-gap: 4px;
   width: 80%;
-  margin-top: 4rem;
+  margin-top: -14rem;
   margin-left: 10%;
   margin-right: 10%;
 }
