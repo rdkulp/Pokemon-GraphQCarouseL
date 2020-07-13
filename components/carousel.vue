@@ -45,7 +45,7 @@ export default {
 }
 
 .pokemon-carousel li img {
-  width: 200px;
+  width: 100px;
 }
 
 .pokemon-carousel li {
