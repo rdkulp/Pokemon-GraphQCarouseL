@@ -1,8 +1,8 @@
 <template>
   <div class="pokemon-carousel-container">
-    <ul class="pokemon-carousel" v-on:click="rotate">
+    <ul class="pokemon-carousel" v-on:click="rotate(pokemons)">
       
-      <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id" v-on:click="rotate">
+      <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id">
         <img :src="pokemon.image" />
         <h2> {{ pokemon.name }} </h2>
         <p> {{ pokemon.type }} </p>
@@ -34,9 +34,8 @@ export default {
     `
   },
   methods: {
-    rotate: function () {
-      array = Array.from(document.querySelectorAll('li'))
-      return array.unshift(array.pop()).prototype.toString();
+    rotate: function (a) {
+      return a.unshift(a.pop());
     }
   }  
 };
