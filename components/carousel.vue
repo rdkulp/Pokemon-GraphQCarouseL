@@ -1,14 +1,22 @@
 <template>
   <div class="pokemon-carousel-container">
-    <ul class="pokemon-carousel" v-on:click="rotate(pokemons)">
+    <ul class="pokemon-carousel">
       
-      <li class="poke-list" v-for="pokemon in pokemons" :key="pokemon.id">
+      <li v-for="pokemon in pokemons" :key="pokemon.id">
         <img :src="pokemon.image" />
         <h2> {{ pokemon.name }} </h2>
         <p> {{ pokemon.type }} </p>
       </li>
+    
     </ul>
+    <div class="control">
+      <span class="left arrow" v-on:click="rotate(pokemons)"><</span>
+      <span class="right arrow" v-on:click="rotateLeft(pokemons)">></span>
+    </div>
   </div>
+  
+    
+  
   
 </template>
 
@@ -36,6 +44,9 @@ export default {
   methods: {
     rotate: function (a) {
       return a.unshift(a.pop());
+    },
+    rotateLeft: function (a) {
+      return a.push(a.shift());
     }
   }  
 };
@@ -56,6 +67,7 @@ export default {
 
 .pokemon-carousel li img {
   width: 100px;
+  cursor: help;
 }
 
 .pokemon-carousel li {
@@ -68,11 +80,81 @@ export default {
   cursor: pointer;
   transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 1;
+  list-style-type: none;
+}
+
+.control {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+}
+
+.left, .right {
+  font-size: 200px;
+  transition: background-position 275ms ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.left {
+  background: linear-gradient(to right, royalblue, royalblue 50%, midnightblue 50%);
+  position: relative;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0%;
+}
+
+.right {
+  background: linear-gradient(to left, royalblue, royalblue 50%, midnightblue 50%);
+  position: relative;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+}
+
+/* .arrow {
+  position: relative;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+} */
+.right:hover {
+  background-position: 0 100%;
+}
+
+.left:hover {
+  background-position: 100% 0%;
 }
 
 .pokemon-carousel li:nth-child(1) {
   z-index: 4;
   transform: translateX(-50%) scale(1) translate3d(0, 40%, 0);
+}
+
+.pokemon-carousel li:nth-child(1), .pokemon-carousel li:nth-child(8) {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 .pokemon-carousel li:nth-child(2) {

@@ -9,6 +9,7 @@
   margin-top: 1vh;
   align-items: center;
   position: relative;
+  width: 5%;
 }
 
 @keyframes appear {
