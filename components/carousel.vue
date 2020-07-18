@@ -10,8 +10,8 @@
     
     </ul>
     <div class="control">
-      <span class="left arrow" v-on:click="rotate(pokemons)"><</span>
-      <span class="right arrow" v-on:click="rotateLeft(pokemons)">></span>
+      <div class="left" v-on:click="rotate(pokemons)"><</div>
+      <div class="right" v-on:click="rotateLeft(pokemons)">></div>
     </div>
   </div>
   
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pokemon-carousel-container {
   position: relative;
   width: 50%;
@@ -66,7 +66,7 @@ export default {
 }
 
 .pokemon-carousel li img {
-  width: 100px;
+  width: 8vw;
   cursor: help;
 }
 
@@ -87,10 +87,10 @@ export default {
   position: sticky;
   bottom: 0;
   display: flex;
-  width: 50%;
+  justify-content: space-between;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: space-between;
 }
 
 .left, .right {
@@ -98,12 +98,14 @@ export default {
   transition: background-position 275ms ease;
   overflow: hidden;
   cursor: pointer;
+  border: none;
+  position: relative;
+  display: inline-block;
+  padding: 50px;
 }
 
 .left {
   background: linear-gradient(to right, royalblue, royalblue 50%, midnightblue 50%);
-  position: relative;
-  display: inline-block;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -113,8 +115,6 @@ export default {
 
 .right {
   background: linear-gradient(to left, royalblue, royalblue 50%, midnightblue 50%);
-  position: relative;
-  display: inline-block;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -122,21 +122,17 @@ export default {
   background-position: 100%;
 }
 
-/* .arrow {
-  position: relative;
-  display: inline-block;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-} */
 .right:hover {
   background-position: 0 100%;
 }
 
 .left:hover {
   background-position: 100% 0%;
+}
+
+span {
+  padding: 5rem;
+  width: 5rem;
 }
 
 .pokemon-carousel li:nth-child(1) {

@@ -1,15 +1,22 @@
 <template>
-  <img class="logo" src="~/assets/logo.png" />
+  <div class="header">
+    <img class="logo" src="~/assets/logo.png" />
+  </div>
 </template>
 
 <style>
+.header {
+  width: 100%;
+  background-color: darkslateblue;
+  height: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logo {
   animation: 1s appear;
-  margin: auto;
-  margin-top: 1vh;
-  align-items: center;
   position: relative;
-  width: 5%;
+  width: 7.5%;
 }
 
 @keyframes appear {
