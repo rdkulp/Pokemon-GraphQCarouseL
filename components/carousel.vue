@@ -1,29 +1,33 @@
 <template>
   <div class="pokemon-carousel-container">
     <ul class="pokemon-carousel">
-      
       <li v-for="pokemon in pokemons" :key="pokemon.id">
-        <img :src="pokemon.image" />
-        <h2> {{ pokemon.name }} </h2>
-        <p> {{ pokemon.type }} </p>
+        <img
+          :src="pokemon.image"
+          :alt="pokemon.name"
+          @mouseover="hover = true"
+          @mouseleave="hover = false"
+        />
+        <h2>{{ pokemon.name }}</h2>
+        <span v-if="hover">{{ pokemon.types[0] }}</span>
+        <p>{{ pokemon.type }}</p>
       </li>
-    
     </ul>
     <div class="control">
       <div class="left" v-on:click="rotate(pokemons)"><</div>
       <div class="right" v-on:click="rotateLeft(pokemons)">></div>
     </div>
   </div>
-  
-    
-  
-  
 </template>
 
 <script>
 import gql from "graphql-tag";
-
 export default {
+  data() {
+    return {
+      hover: false
+    };
+  },
   apollo: {
     pokemons: gql`
       query getPokemon {
@@ -42,13 +46,13 @@ export default {
     `
   },
   methods: {
-    rotate: function (a) {
+    rotate: function(a) {
       return a.unshift(a.pop());
     },
-    rotateLeft: function (a) {
+    rotateLeft: function(a) {
       return a.push(a.shift());
     }
-  }  
+  }
 };
 </script>
 
@@ -62,6 +66,7 @@ export default {
 .pokemon-carousel {
   position: relative;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   height: 50vw;
 }
 
@@ -73,7 +78,7 @@ export default {
 .pokemon-carousel li {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: -11px;
   width: 30%;
   height: 100%;
   padding: 0;
@@ -89,11 +94,13 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 75%;
+
   margin-left: auto;
   margin-right: auto;
 }
 
-.left, .right {
+.left,
+.right {
   font-size: 200px;
   transition: background-position 275ms ease;
   overflow: hidden;
@@ -105,7 +112,12 @@ export default {
 }
 
 .left {
-  background: linear-gradient(to right, royalblue, royalblue 50%, midnightblue 50%);
+  background: linear-gradient(
+    to right,
+    royalblue,
+    royalblue 50%,
+    midnightblue 50%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -114,7 +126,12 @@ export default {
 }
 
 .right {
-  background: linear-gradient(to left, royalblue, royalblue 50%, midnightblue 50%);
+  background: linear-gradient(
+    to left,
+    royalblue,
+    royalblue 50%,
+    midnightblue 50%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -140,7 +157,8 @@ span {
   transform: translateX(-50%) scale(1) translate3d(0, 40%, 0);
 }
 
-.pokemon-carousel li:nth-child(1), .pokemon-carousel li:nth-child(8) {
+.pokemon-carousel li:nth-child(1),
+.pokemon-carousel li:nth-child(8) {
   animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
   -moz-animation: fadeIn ease 1s;
@@ -149,8 +167,12 @@ span {
 }
 
 @keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .pokemon-carousel li:nth-child(2) {
