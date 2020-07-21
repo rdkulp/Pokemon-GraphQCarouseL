@@ -9,8 +9,7 @@
           @mouseleave="hover = false"
         />
         <h2>{{ pokemon.name }}</h2>
-        <span v-if="hover">{{ pokemon.types[0] }}</span>
-        <p>{{ pokemon.type }}</p>
+        <span v-if="hover">{{ emojiType(pokemon.types[0]) }}</span>
       </li>
     </ul>
     <div class="control">
@@ -34,12 +33,7 @@ export default {
         pokemons(first: 8) {
           id
           name
-          weight {
-            maximum
-          }
           types
-          weaknesses
-          fleeRate
           image
         }
       }
@@ -51,6 +45,18 @@ export default {
     },
     rotateLeft: function(a) {
       return a.push(a.shift());
+    },
+    emojiType(a) {
+      const type = a;
+      if (type === "Grass") {
+        return "🌱";
+      } else if (type === "Fire") {
+        return "🔥";
+      } else if (type === "Water") {
+        return "💦";
+      } else {
+        return "?";
+      }
     }
   }
 };
