@@ -9,7 +9,7 @@
           @mouseleave="hover = false"
         />
         <h2>{{ pokemon.name }}</h2>
-        <span v-if="hover">{{ emojiType(pokemon.types[0]) }}</span>
+        <span class="emoji-types" v-if="hover">{{ emojiType(pokemon.types[0]) }}</span>
       </li>
     </ul>
     <div class="control">
@@ -92,6 +92,10 @@ export default {
   transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 1;
   list-style-type: none;
+}
+
+.emoji-types {
+  font-size: 2rem;
 }
 
 .control {
