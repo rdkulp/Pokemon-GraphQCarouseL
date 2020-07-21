@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="logo" src="~/assets/logo.png" />
+    <img class="logo" src="~/assets/logo.png" alt="poke-ball" />
   </div>
 </template>
 

@@ -4,6 +4,7 @@
       <Logo />
     </div>
     <Carousel />
+    <Ball />
   </div>
 </template>
 
