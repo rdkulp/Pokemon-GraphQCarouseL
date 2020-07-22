@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <div class="nav-left">
+    <nav class="nav-left">
       <nuxt-link to="/">Carousel</nuxt-link>
       <nuxt-link to="/grid">Grid</nuxt-link>
-    </div>
+    </nav>
     <img class="logo" src="~/assets/logo.png" alt="poke-ball" />
   </div>
 </template>
@@ -40,12 +40,19 @@
     flex-direction: row-reverse;
     justify-content: space-between;
   }
+  .logo {
+    margin-right: 20%;
+  }
+  .nav {
+    font-size: 1rem;
+  }
   .nav-left {
-    width: 65%;
+    width: 60%;
   }
   .nav-left a {
     margin: auto;
     margin-right: 20px;
+    font-size: 1rem;
   }
   .logo {
     margin: auto;

@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-    </div>
     <Grid />
   </div>
 </template>
