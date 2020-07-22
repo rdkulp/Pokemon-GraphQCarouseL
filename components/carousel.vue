@@ -112,7 +112,7 @@ export default {
 .left,
 .right {
   font-size: 200px;
-  transition: background-position 275ms ease;
+  transition: background-position 1s ease;
   overflow: hidden;
   cursor: pointer;
   border: none;
