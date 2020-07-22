@@ -9,3 +9,9 @@ h2 {
   font-size: 2rem;
   color: darkslateblue;
 }
+
+@media only screen and (max-width: 649px) {
+ h2 {
+   font-size: 1rem;
+ } 
+}

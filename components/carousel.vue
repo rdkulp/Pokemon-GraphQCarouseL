@@ -24,7 +24,7 @@ import gql from "graphql-tag";
 export default {
   data() {
     return {
-      hover: false
+      hover: false,
     };
   },
   apollo: {
@@ -37,13 +37,13 @@ export default {
           image
         }
       }
-    `
+    `,
   },
   methods: {
-    rotate: function(a) {
+    rotate: function (a) {
       return a.unshift(a.pop());
     },
-    rotateLeft: function(a) {
+    rotateLeft: function (a) {
       return a.push(a.shift());
     },
     emojiType(a) {
@@ -57,8 +57,8 @@ export default {
       } else {
         return "?";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -232,5 +232,12 @@ span {
   font-weight: 600;
   color: white;
   align-content: center;
+}
+
+@media only screen and (max-width: 649px) {
+  .left,
+  .right {
+    font-size: 100px;
+  }
 }
 </style>
