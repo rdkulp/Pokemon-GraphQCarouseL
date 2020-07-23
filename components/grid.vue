@@ -1,7 +1,15 @@
 <template>
   <div class="pokemon-grid">
-    <div class="poke-grid" v-for="pokemon in pokemons" :key="pokemon.id">
-      <img :src="pokemon.image" :alt="pokemon.name" />
+    <h2>Pokémon caught: {{ counter }}</h2>
+    <div class="poke-grid" v-for="(pokemon, index) in pokemons" :key="pokemon.id">
+      <img
+        class="poke-ball"
+        :src="pokemon.image"
+        :id="pokemon.id"
+        :alt="pokemon.name"
+        v-model="counter"
+        @click="counter += 1; catchEm(index);"
+      />
       <h2>{{ pokemon.name }}</h2>
     </div>
   </div>
@@ -27,6 +35,16 @@ export default {
         }
       }
     `,
+  },
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+  methods: {
+    catchEm: function (index) {
+      this.pokemons.splice(index, 1);
+    },
   },
 };
 </script>
@@ -62,6 +80,10 @@ export default {
 }
 .pokemon-grid div img:hover {
   transform: translate(0, -2.5%);
+  cursor: url("/assets/poke-ball.png");
+}
+.poke-ball {
+  cursor: url("/assets/poke-ball.png");
 }
 .poke-grid {
   margin-top: 2rem;

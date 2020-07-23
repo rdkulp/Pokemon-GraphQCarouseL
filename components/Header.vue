@@ -14,14 +14,14 @@
   background-color: darkslateblue;
   height: 9vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  margin-bottom: 20px;
 }
 .logo {
   animation: 1s appear;
   position: relative;
-  width: 7.5%;
-  margin-right: 50%;
+  width: 8%;
 }
 .nav-left a {
   font-family: "futura";
@@ -33,7 +33,7 @@
 .nav-left {
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  width: 46%;
 }
 @media only screen and (max-width: 649px) {
   .header {

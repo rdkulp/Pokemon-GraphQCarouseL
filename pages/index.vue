@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Gif />
     <Carousel />
   </div>
 </template>
