@@ -1,6 +1,6 @@
 <template>
-  <div class="pokemon-grid">
-    <h2>Pokémon caught: {{ counter }}</h2>
+  <div id="pokemon-grid">
+    <h2 id="counter">Pokémon caught: {{ counter }}</h2>
     <div class="poke-grid" v-for="(pokemon, index) in pokemons" :key="pokemon.id">
       <img
         class="poke-ball"
@@ -17,7 +17,6 @@
 
 <script>
 import gql from "graphql-tag";
-
 export default {
   apollo: {
     pokemons: gql`
@@ -63,7 +62,12 @@ export default {
   text-align: center;
   width: 100%;
 }
-.pokemon-grid {
+#counter {
+  position: fixed;
+  top: 0;
+  left: 5px;
+}
+#pokemon-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 4px;
@@ -73,12 +77,12 @@ export default {
   margin-left: 10%;
   margin-right: 10%;
 }
-.pokemon-grid div img {
+#pokemon-grid div img {
   height: 100px;
   margin: 2rem;
   align-items: center;
 }
-.pokemon-grid div img:hover {
+#pokemon-grid div img:hover {
   transform: translate(0, -2.5%);
   cursor: url("/assets/poke-ball.png");
 }
@@ -105,7 +109,7 @@ ul {
   padding-top: 15px;
 }
 @media only screen and (max-width: 649px) {
-  .pokemon-grid {
+  #pokemon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 4px;

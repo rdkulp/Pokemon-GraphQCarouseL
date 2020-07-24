@@ -6,7 +6,7 @@
         fill="#fff"
       />
     </mask>
-    <image href="~/assets/pokemon-img.jpg" height="100%" width="100%" mask="url(#pokeMask)" />
+    <image href="~/assets/poke.webp" height="100%" width="100%" mask="url(#pokeMask)" />
   </svg>
 </template>
 
