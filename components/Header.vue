@@ -44,6 +44,7 @@
   }
   .logo {
     margin-right: 20%;
+    width: 20%;
   }
   .nav {
     font-size: 1rem;
