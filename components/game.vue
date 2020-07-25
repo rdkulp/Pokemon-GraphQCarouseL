@@ -67,7 +67,7 @@ export default {
 }
 #counter {
   position: fixed;
-  top: 150px;
+  top: 10vw;
   left: 5px;
   opacity: 1;
 }
