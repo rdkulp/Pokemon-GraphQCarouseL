@@ -155,9 +155,10 @@ span h1:nth-child(3) {
   position: absolute;
   top: 25%;
   left: 0;
-  font-size: 3.5rem;
+  font-size: 3vw;
   width: 100%;
   text-transform: uppercase;
   font-family: "futura";
+  overflow: hidden;
 }
 </style>
