@@ -73,9 +73,7 @@ export default {
 }
 #pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   width: 80%;
   margin-top: 4rem;
   margin-left: 10%;
@@ -113,18 +111,6 @@ ul {
   padding-top: 15px;
 }
 
-@media only screen and (max-width: 649px) {
-  #pokemon-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
-    width: 80%;
-    margin-top: 4rem;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-}
 /* Caught 'em All */
 span h1 {
   color: goldenrod;

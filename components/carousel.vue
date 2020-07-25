@@ -12,7 +12,7 @@
         <span class="emoji-types" v-if="hover">{{ emojiType(pokemon.types[0]) }}</span>
       </li>
     </ul>
-    <div class="control">
+    <div id="control">
       <div class="left" v-on:click="rotate(pokemons)"><</div>
       <div class="right" v-on:click="rotateLeft(pokemons)">></div>
     </div>
@@ -98,7 +98,7 @@ export default {
   font-size: 2rem;
 }
 
-.control {
+#control {
   position: sticky;
   bottom: 0;
   display: flex;
@@ -238,6 +238,10 @@ span {
   .left,
   .right {
     font-size: 100px;
+  }
+  #control {
+    width: 100%;
+    margin: -25%;
   }
 }
 </style>
