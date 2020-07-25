@@ -2,7 +2,7 @@
   <div id="pokemon-grid">
     <h2 id="counter">Pokémon caught: {{ counter }}</h2>
     <span id="caught">
-      <h1 v-for="n in 4">You caught 'em all!</h1>
+      <h1 v-for="n in 6">You caught 'em all!</h1>
     </span>
     <div class="poke-grid" v-for="(pokemon, index) in pokemons" :key="pokemon.id">
       <img
@@ -114,7 +114,7 @@ ul {
 /* Caught 'em All */
 span h1 {
   color: goldenrod;
-  animation: flicker 250ms infinite;
+  animation: flicker 3s infinite;
 }
 @keyframes flicker {
   0% {
@@ -129,12 +129,26 @@ span h1 {
 }
 span h1:nth-child(1) {
   color: slategray;
+  animation: flicker 2500ms infinite;
 }
 span h1:nth-child(2) {
   color: slateblue;
+  animation: flicker 2s infinite;
 }
 span h1:nth-child(3) {
+  color: cornflowerblue;
+  animation: flicker 1500ms infinite;
+}
+span h1:nth-child(4) {
+  color: teal;
+  animation: flicker 1s infinite;
+}
+span h1:nth-child(5) {
   color: tomato;
+  animation: flicker 500ms infinite;
+}
+span h1:nth-child(6) {
+  color: goldenrod;
 }
 #caught {
   visibility: hidden;
@@ -146,5 +160,6 @@ span h1:nth-child(3) {
   text-transform: uppercase;
   font-family: "futura";
   overflow: hidden;
+  line-height: 6rem;
 }
 </style>

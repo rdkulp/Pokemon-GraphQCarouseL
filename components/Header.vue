@@ -4,7 +4,9 @@
       <nuxt-link to="/">Carousel</nuxt-link>
       <nuxt-link to="/game">Game</nuxt-link>
     </nav>
-    <img class="logo" src="~/assets/logo.png" alt="poke-ball" />
+    <nuxt-link to="/">
+      <img class="logo" src="~/assets/logo.png" alt="poke-ball" />
+    </nuxt-link>
   </div>
 </template>
 
@@ -21,7 +23,7 @@
 .logo {
   animation: 1s appear;
   position: relative;
-  width: 8%;
+  width: 45%;
 }
 .nav-left a {
   font-family: "futura";

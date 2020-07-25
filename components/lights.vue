@@ -8,6 +8,10 @@
 </template>
 
 <style scoped>
+h1 {
+  font-family: "futura";
+  text-transform: uppercase;
+}
 #lights {
   position: relative;
   display: flex;
