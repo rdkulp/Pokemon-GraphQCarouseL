@@ -2,7 +2,7 @@
   <div class="header">
     <nav class="nav-left">
       <nuxt-link to="/">Carousel</nuxt-link>
-      <nuxt-link to="/grid">Grid</nuxt-link>
+      <nuxt-link to="/game">Game</nuxt-link>
     </nav>
     <img class="logo" src="~/assets/logo.png" alt="poke-ball" />
   </div>

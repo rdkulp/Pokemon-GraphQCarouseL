@@ -1,16 +1,18 @@
 <template>
   <div id="pokemon-grid">
     <h2 id="counter">Pokémon caught: {{ counter }}</h2>
+    <span id="caught">
+      <h1 v-for="n in 4">You caught 'em all!</h1>
+    </span>
     <div class="poke-grid" v-for="(pokemon, index) in pokemons" :key="pokemon.id">
       <img
-        class="poke-ball"
+        class="pokemon"
         :src="pokemon.image"
         :id="pokemon.id"
         :alt="pokemon.name"
         v-model="counter"
-        @click="counter += 1; catchEm(index);"
+        @click="counter += 1; catchEm(index, counter);"
       />
-      <h2>{{ pokemon.name }}</h2>
     </div>
   </div>
 </template>
@@ -21,7 +23,7 @@ export default {
   apollo: {
     pokemons: gql`
       query getPokemon {
-        pokemons(first: 120) {
+        pokemons(first: 10) {
           id
           name
           weight {
@@ -41,19 +43,20 @@ export default {
     };
   },
   methods: {
-    catchEm: function (index) {
-      this.pokemons.splice(index, 1);
+    catchEm: function (index, counter) {
+      if (counter < 10) {
+        this.pokemons.splice(index, 1);
+      } else {
+        this.pokemons.splice(index, 1);
+        const winner = document.getElementById("caught");
+        winner.style.visibility = "visible";
+      }
     },
   },
 };
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -64,8 +67,9 @@ export default {
 }
 #counter {
   position: fixed;
-  top: 0;
+  top: 150px;
   left: 5px;
+  opacity: 1;
 }
 #pokemon-grid {
   display: grid;
@@ -108,6 +112,7 @@ ul {
 .links {
   padding-top: 15px;
 }
+
 @media only screen and (max-width: 649px) {
   #pokemon-grid {
     display: grid;
@@ -119,5 +124,40 @@ ul {
     margin-left: 10%;
     margin-right: 10%;
   }
+}
+/* Caught 'em All */
+span h1 {
+  color: goldenrod;
+  animation: flicker 250ms infinite;
+}
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+span h1:nth-child(1) {
+  color: slategray;
+}
+span h1:nth-child(2) {
+  color: slateblue;
+}
+span h1:nth-child(3) {
+  color: tomato;
+}
+#caught {
+  visibility: hidden;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  font-size: 3.5rem;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: "futura";
 }
 </style>

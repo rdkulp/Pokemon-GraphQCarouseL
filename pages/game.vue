@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Lights />
-    <Grid />
+    <Game />
   </div>
 </template>
 

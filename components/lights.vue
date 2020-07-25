@@ -3,6 +3,7 @@
     <img src="~/assets/red-pokeball.svg" id="red" alt="red-pokemon-ball-fades" />
     <img src="~/assets/yellow-pokeball.svg" id="yellow" alt="yellow-pokemon-ball-fades" />
     <img src="~/assets/green-pokeball.svg" id="green" alt="green-pokemon-ball-fades" />
+    <h1 id="catch">Click 'em All!</h1>
   </div>
 </template>
 
@@ -17,15 +18,6 @@
   height: 100px;
   margin-left: 30px;
   opacity: 0;
-}
-
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 #red {
@@ -44,5 +36,26 @@
   animation-name: fadeout;
   animation-delay: 4500ms;
   animation-duration: 2s;
+}
+
+#catch {
+  animation-name: fadeout;
+  animation-timing-function: ease;
+  animation-delay: 5500ms;
+  animation-duration: 3s;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  top: 100px;
+  font-size: 3.5rem;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
