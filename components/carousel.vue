@@ -29,7 +29,7 @@ export default {
   },
   apollo: {
     pokemons: gql`
-      query getPokemon {
+      query pokemons {
         pokemons(first: 8) {
           id
           name
